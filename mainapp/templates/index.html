@@ -1,0 +1,71 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Medical Cost Prediction</title>
+</head>
+
+<body>
+<div class="wrap">
+  <form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="search">
+      <input name="name" type="text" class="searchTerm" placeholder="Name of the person">
+     </div>
+      <br>
+
+      <div class="search">
+      <input name="age" type="text" class="searchTerm" placeholder="Age of the person">
+     </div>
+      <br>
+
+      <div class="search">
+      <select name="sex" class="searchTerm">
+        <option selected>Gender of the person</option>
+        <option value="0">Female</option>
+        <option value="1">Male</option>
+        </select>
+       </div>
+       <br>
+
+      <div class="search">
+      <input name="bmi" type="text" class="searchTerm" placeholder="BMI of the person">
+     </div>
+      <br>
+
+      <div class="search">
+      <input name="child" type="text" class="searchTerm" placeholder="Number of children of the person">
+     </div>
+      <br>
+
+    <div class="search">
+      <select name="smoker" class="searchTerm">
+        <option selected>Is the person a smoker?</option>
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+        </select>
+       </div>
+       <br>
+
+      <div class="search">
+      <select name="region" class="searchTerm">
+        <option selected>To which region do they belong?</option>
+        <option value="0">Northeast</option>
+        <option value="1">Northwest</option>
+        <option value="2">Southeast</option>
+        <option value="3">Southwest</option>
+        </select>
+       </div>
+       <br>
+
+      <button type="submit" name="pred_button" class="searchButton"> Submit
+            <i class="fa fa-search"></i>
+      </button>
+   </form>
+   {% if response %}
+      <h2>The Cost will be: {{ response }}</h2>
+    {% endif %}
+</div>
+
+</body>
+</html>
