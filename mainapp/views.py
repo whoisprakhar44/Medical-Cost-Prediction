@@ -19,7 +19,8 @@ def index_func(request):
             df_1 = {'age': float(age), 'sex': int(gender), 'bmi': float(bmi), 'children': int(child),
                    'smoker': int(smoker), 'region': int(region)}
 
-            df_2 = df.append(df_1, ignore_index=True)
+            # df_2 = df.append(df_1, ignore_index=True)
+            df_2 = pd.concat([df, pd.DataFrame([df_1])], ignore_index=True)
 
             pickle_in = 'mainapp/MedicalCost_rf.pkl'
             model = pickle.load(open(pickle_in, 'rb'))
